@@ -25,7 +25,7 @@ namespace MupetJoy.Models
         public int PayTermsGrpCode { get; set; }
         public int PriceListNum { get; set; }
         //[Display(Name = "SurgeonName")]
-        public string U_SurgeonAfiliation { get; set; }
+        //public string U_SurgeonAfiliation { get; set; }
         public List<ShippingORBilling> BPAddresses { get; set; }
               
       
