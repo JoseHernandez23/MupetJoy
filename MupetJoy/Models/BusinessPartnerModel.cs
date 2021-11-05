@@ -6,6 +6,7 @@ using System.Web;
 
 namespace MupetJoy.Models
 {
+	//Este msj es colocado desde la rama develop
     public class BusinessPartnerModel
     {
         public string CardCode { get; set; } 
