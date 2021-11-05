@@ -1,0 +1,3061 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mupet</name>
+    </assembly>
+    <members>
+        <member name="F:Novitec.Mupet.Common.LogAttempt._logData">
+            <summary>
+            The current row in DB table LOG_WS
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttempt.Defaults">
+            <summary>
+            Establese los valores iniciales por defecto de la entrada de log
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttempt.Save">
+            <summary>
+            Crea o sobreescribe un intento en la tabla LOG_ATTEMPT_OBJECT
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttempt.SaveMany(System.Int32,System.String,System.String,System.Nullable{Novitec.Mupet.Common.LogAttemptDirection},System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Crea o sobreescribe todos los intentos de la tabla LOG_ATTEMPT_OBJECT, relacionados con el logId dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttempt.QueryNotIn(System.String,System.String,System.String,System.Nullable{Novitec.Mupet.Common.LogAttemptDirection},System.Int32)">
+            <summary>
+            Obtiene el quiere donde un campo no esta en los intentos menores a 24 horas
+            </summary>
+            <param name="fieldName">El nombre del campo sobre el que se vara a comparar</param>
+            <param name="objType">Tipo de objeto</param>
+            <param name="afterHours">Despues de cuantas horas puede reintentarse un objeto a partir del ultimo intento(24 por defecto)</param>
+            <returns>{fieldName} NOT IN (LOG_ATTEMPT_OBJECT WHERE type = {type} AND hoursPassed > {afterHours} ) </returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttemptObject.Save(System.String,System.String,Novitec.Mupet.Common.NVTException,Novitec.Mupet.Common.SAPException)">
+            <summary>
+            Crea o sobreescribe un intento en la tabla LOG_ATTEMPT_OBJECT
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttemptObject.Remove(System.String,System.String)">
+            <summary>
+            Elimina el intento de un objeto basado en el id de objeto y el tipo de objeto
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttemptObject.Remove(System.Int32)">
+            <summary>
+            Elimina el intento de un objeto basado en el id de la fila
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttemptObject.QueryNotIn(System.String,System.String,System.Int32)">
+            <summary>
+            Obtiene el quiere donde un campo no esta en los intentos menores a 24 horas
+            </summary>
+            <param name="fieldName">El nombre del campo sobre el que se vara a comparar</param>
+            <param name="type">Tipo de objeto</param>
+            <param name="afterHours">Despues de cuantas horas puede reintentarse un objeto a partir del ultimo intento(24 por defecto)</param>
+            <returns>{fieldName} NOT IN (LOG_ATTEMPT_OBJECT WHERE type = {type} AND hoursPassed > {afterHours} ) </returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogAttemptObject.RemoveOld(System.String,System.Int32)">
+            <summary>
+            Elimina el intento de un objeto basado en el tipo si ya tiene mas de 3 dias
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.ConfigurationManager.lockConfiguration">
+            <summary>
+            Lock for getting de configuration from memory or file
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.ConfigurationManager.lockConfigurationSave">
+            <summary>
+            Lock for saving de configuration in memory and file
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.ConfigurationManager.self">
+            <summary>
+            Singleton
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Common.ConfigurationManager.Instance">
+            <summary>
+            Singleton
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Common.ConfigurationManager.Version">
+            <summary>
+            Obtiene un valor de configuracion [version]
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Common.ConfigurationManager.IsHana">
+            <summary>
+            Para saber si la version es Hana
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.Get(System.String)">
+            <summary>
+            Esta funcion no es necesaria, sin embargo se debe agregar para mantener compatibilidad con versiones webservices compilados con versiones anteriores de Mupet
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.Get``1(System.String)">
+            <summary>
+            Obtiene un valor de configuracion
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.Get``1(System.String,``0)">
+            <summary>
+            Obtiene un valor de configuracion
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Common.ConfigurationManager.Configuration">
+            <summary>
+            Metodo auxiliar que retorna los parametros actuales del sistema
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.GetConfiguration(System.String,System.String)">
+            <summary>
+            Metodo auxiliar que retorna los parametros actuales del sistema, verifica que usuario y password sean iguales
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.SaveConfiguration(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Action{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Metodo auxiliar para guardar los parametros al archivo, verificando antes por medio de usuario y password
+            </summary>
+            <returns>Mensaje de error o exito</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.Encrypt(System.String,System.String)">
+            <summary>
+            Expone el metodo de encripcion
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.Decrypt(System.String,System.String)">
+            <summary>
+            Expone el metodo de des-encripcion
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.FormatWithConfig(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Reemplaza cada ocurrencia de {key} por el valor en el archivo de configuracion configuration[key]
+              NOTA: no reemplaza si el valor es nulo
+            </summary>
+            <param name="value"></param>
+            <param name="replaceConfiguration">Si no se quiere usar el archivo de configuracion existente</param>
+            <param name="extraConfiguration">Si se desea agregar mas valores que no esten en el archivo de configuracion</param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.ConfigurationManager.ConfigurationToXML(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Transforma una configuracion en un objeto XML
+            </summary>
+            <param name="currentConfiguration"></param>
+            <returns>XmlDocument</returns>
+        </member>
+        <member name="T:Novitec.Mupet.Common.WebServiceAuthBase">
+            <summary>
+            Descripción breve de MainService
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.CustomFileLock.Process(System.Action)">
+            <summary>
+            Encapsulamiento para asegurarse que un procedimiento se ejecute exclusivamente por un proceso, haciendo un bloqueo de archivo
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Novitec.Mupet.Common.WebServicePrintServiceBase">
+            <summary>
+            Descripción breve de MainService
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel.LockWriteLog">
+            <summary>
+            Lock for writing in the log file
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel._logData">
+            <summary>
+            The current row in DB table LOG_WS
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel._currentlogError">
+            <summary>
+            En caso de que un error surja al insertar en la base de datos
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel.breadcrumbs">
+            <summary>
+            Para dejar listas de mensajes que se guardaran en el log
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel._currentThirdPartylogEntries">
+            <summary>
+            The current rows in DB table THIRDPARTY_WS
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel._inputValue">
+            <summary>
+            El valor del campo input antes de ser seralizado para guardarse
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Common.LogEntryModel._started">
+            <summary>
+            Indica si el log ya ha sido insertado en DB (con Metodo Start o StartExisting)
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.LogDataDefaults">
+            <summary>
+            Establese los valores iniciales por defecto de la entrada de log
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.StartLogEntry(System.Nullable{System.Int32})">
+            <summary>
+             Crea los datos inciales de la entrada de Log
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.AddThirdPartyLogEntry(System.String,System.String,System.String,System.String)">
+            <summary>
+            En el caso que un metodo haga uno o mas llamados a servicios externos (Third Party) se agregan al log por medio de este metodo
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.StartLogEntryDB">
+            <summary>
+            Dado que SAP y SAP Hana usan motores de DB ligeramente diferente, cada clase correspondiente que herede debera crear la entrada de log en la base de datos.
+            </summary>
+            <returns>El id de la fila insertada en la base de datos</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.EndLogEntryDB">
+            <summary>
+            Dado que SAP y SAP Hana usan motores de DB ligeramente diferente, cada clase correspondiente que herede debera crear la entrada de log en la base de datos.
+            </summary>
+            <returns>El id de la fila insertada en la base de datos</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.ChangeStatusDB(System.String)">
+            <summary>
+            Cambia el estatus de la entrada de log en base de datos
+            </summary>
+            <returns>El id de la fila insertada en la base de datos</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.DropLogEntryDB">
+            <summary>
+            Dado que SAP y SAP Hana usan motores de DB ligeramente diferente, cada clase correspondiente que herede debera crear la entrada de log en la base de datos.
+            </summary>
+            <returns>El id de la fila insertada en la base de datos</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.addThirdPartyLogEntryDB(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Inserta una linea en el log de llamadas a terceros, relacionado con el current log entry id
+            </summary>
+            <returns>El id de la fila insertada en la base de datos</returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.FileAddEntry">
+            <summary>
+            Inserta una fila en el archivo de log Json o lo crea si no existe.
+            Se crea un archivo por dia por nombre de clase
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.WriteInLog(System.String,System.Object)">
+            <summary>
+            Inserta una fila en el archivo de log Json o lo crea si no existe.
+            Se crea un archivo por dia por nombre de clase
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.LogEntryModel.CompressDeleteLog(System.String,System.String)">
+            <summary>
+            Toma todos los archivos menores al primero del mes actual con la extencion [ext] y ruta indicada y los almacena en un .zip
+            Elimina los archivos una vez comprimidos
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.DeserializeJson``1(System.String)">
+            <summary>
+            Deserialize a json string into an object of type T
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.DeserializeJson(System.String)">
+            <summary>
+            Deserialize a json string into an object of type T
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.SerializeJson(System.Object)">
+            <summary>
+            Serialize an object to a json string 
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.SerializeXML(System.Object)">
+            <summary>
+            Serialize an object to an XML string 
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Novitec.Mupet.Common.Util.Utf8StringWriter">
+            <summary>
+            Se sobreescribe la clase StringWriter para generar los xmls como utf8
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.BeautifyXML(System.String)">
+            <summary>
+            Indent XML string 
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.BeautifyXML(System.Xml.XmlDocument)">
+            <summary>
+            Indent XML document 
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.Serialize(System.Object,Novitec.Mupet.Common.FormatEnum)">
+            <summary>
+            Serialize an object to an {returnFormat} string 
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.DataTableToXMLString(System.Data.DataTable)">
+            <summary>
+            Converts a DataTable to an XML string
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.Util.DataTableToXMLDocument(System.Data.DataTable)">
+            <summary>
+            Converts a DataTable to an XML string
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.SAPException.ToString">
+            <summary>
+            Returns code and message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.SAPException.ToLargeString">
+            <summary>
+            returns everything including inner exceptions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.NVTException.CondenzarExcepciones``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            Dada un alista de excepciones, unifica cada una en un string, una por linea.
+            Genera una excepcion padre donde el mensaje es el string generado.
+            Si solo una excepcion existe en la lista, entonces se retorna ese unico elemento de la lista.
+            </summary>
+            <param name="errors">lista de excepciones de tipo SAPException o NVTException</param>
+            <param name="code">codigo de la excepcion padre</param>
+            <returns></returns>
+        </member>
+        <member name="T:Novitec.Mupet.Common.WebServiceAdminBase">
+            <summary>
+            Descripción breve de MainService
+            </summary>
+        </member>
+        <member name="T:Novitec.Mupet.Common.WebServiceExchangeRateBase">
+            <summary>
+            Descripción breve de MainService
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Common.EncryptFile.Encrypt(System.String,System.String)">
+            <summary>
+            Encripta contenido
+            </summary>
+            <param name="contenido">contenido a encriptar</param>
+            <param name="sKey">Llave de compresión, debe tener 8 caracteres. En caso de que tenga más
+            se corta y en caso de que tenga menos se ajusta con espacios en blanco</param>
+        </member>
+        <member name="M:Novitec.Mupet.Common.EncryptFile.Encrypt(System.String,System.String,System.String)">
+            <summary>
+            Sobrecarga para encriptar hacia un archivo
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.EncryptFile.Decrypt(System.String,System.String)">
+            <summary>
+            Desencripta un string que haya sido encriptado con este mismo método de encripción
+            </summary>
+            <param name="contenido">contenido encriptado</param>
+            <param name="sKey">Llave para encripción, debe ser de tamaño 8, en caso contrario se
+            corta la llave o se rellena con espacios</param>
+        </member>
+        <member name="M:Novitec.Mupet.Common.EncryptFile.DecryptFile(System.String,System.String)">
+            <summary>
+            Sobrecarga para desencriptar hacia un archivo
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.EncryptFile.ajustarKey(System.String,System.Int32)">
+            <summary>
+            Ajusta el tamaño de una llave a la cantidad de caracteres dados
+            </summary>
+            <param name="llave"></param>
+            <param name="tamano"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Common.WebServiceBase.returnJson(System.Object,System.Boolean)">
+            <summary>
+            Return a json string from a given object
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Common.WebServiceBase.returnXML(System.Object,System.Boolean)">
+            <summary>
+            Return an XML string from a given object
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Common.WebServiceBase.returnSpecificFormat(System.String,System.String,System.Boolean)">
+            <summary>
+            Return an XML/Json string
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.CreateUri(System.String,System.String,System.String)">
+            <summary>
+            Creates an URI with the format:
+                {serverUrl}/element(elementId)/action
+                {serverUrl}/element/action
+                {serverUrl}/action
+            Depending on which params are available
+            </summary>
+            <param name="action">the ServiceLayer Action (ej. Cancel)</param>
+            <param name="element">The ServiceLayer document (ej. IncomingPayments)</param>
+            <param name="elementId">The ServiceLayer document Id field value (ej. 12456)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.connect(System.String,System.String,System.String,System.String)">
+            <summary>
+            Login server by executing the Login action
+            </summary>
+            <param name="cred"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.Disconnect">
+            <summary>
+            Logout server by executing logout action.
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.SaveChanges(System.Data.Services.Client.SaveChangesOptions,System.Int32)">
+            <summary>
+            Intenta llamar SaveChanges con el service layer, si la sesion expiro, entonces hace un reconect y luego lo reintenta
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.SafeRun``1(System.Func{``0})">
+            <summary>
+            Intenta Ejecutar una función, si esta resulta en "Invalid session", reconecta y reintenta la llamada a la funcion dada
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.SafeRun(System.Action)">
+            <summary>
+            Intenta Ejecutar una accion, si esta resulta en "Invalid session", reconecta y reintenta la llamada a la funcion dada
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.SafeRun404``1(System.Func{``0})">
+            <summary>
+            Igual que un SafeRun pero si el WS retorna 404, la función retorna nulo
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="serviceLayerAccess"></param>
+            <param name="_safeRun"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.rebuildComplexValue(Microsoft.Data.OData.ODataComplexValue)">
+            <summary>
+            Create new ODataComplexValue from the old, to discard all null/zero values
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.rebuildCollectionValue(Microsoft.Data.OData.ODataCollectionValue)">
+            <summary>
+            Create new ODataCollectionValue from the old, to discard all null/empty values
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.filterNullValues(System.Collections.Generic.List{Microsoft.Data.OData.ODataProperty},System.Boolean)">
+            <summary>
+            Create new top level property set, to filter all empty collection, null/zero values if "bIgnore" is true.
+            </summary>
+            <param name="listSource"></param>
+            <param name="bIgnore"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.initServiceLayer(System.String)">
+            <summary>
+            Create new entity container (service layer) for our business usage.
+            </summary>
+            <param name="strServerURL"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.serviceLayer_ReceivingResponse(System.Object,System.Data.Services.Client.ReceivingResponseEventArgs)">
+            <summary>
+            Method being call for each response received from Service Layer
+            Take care of B1SESSION and ROUTEID details
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.createHeaderItem(System.String,System.String)">
+            <summary>
+            Create Header
+            </summary>
+            <param name="strName"></param>
+            <param name="strValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.buildResponseStringContent(Microsoft.Data.OData.IODataResponseMessage)">
+            <summary>
+            Build the HTTP response headers to be string for checking usage, on GUI.
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.buildRequestStringContent(System.Net.HttpWebRequest)">
+            <summary>
+            Build the HTTP request headers to be string for checking usage, on GUI.
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.ServiceLayerAccess.serviceLayer_SendingRequest(System.Object,System.Data.Services.Client.SendingRequestEventArgs)">
+            <summary>
+            Method called before each request is sent to Service Layer
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Novitec.Mupet.Hana.CustomHanaError">
+            <summary>
+            Esta clase es usada para deserializar la respuesta json de Hana Service Layer
+            
+            </summary>
+        </member>
+        <member name="T:Novitec.Mupet.Hana.DBAccessHana">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Hana.DBAccessHana.connection">
+            <summary>
+            Conexion compartida por todos los comandos
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Hana.DBAccessHana.transaction">
+            <summary>
+            Transaccion compartida por todos los comandos (si se require llamar a StartTransaction)
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.#ctor">
+            <summary>
+            Crea una instancia de DBAccessHana, basado en el archivo de configuracion
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Crea una instancia de DBAccessHana, basado en parametros de Conexion
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.newConnection(System.String,System.String,System.String,System.String)">
+            <param name="server">Nombre del servidor SQL</param>
+            <param name="database">Nombre de la base de datos</param>
+            <param name="user">Usuario para conectarse a la base de datos</param>
+            <param name="password">Password para conectarse a la base de datos</param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.TestConnection(System.String,System.String,System.String,System.String)">
+            <summary>
+            Abre y cierra una Conexion para probar los parametros dados
+            </summary>
+            <param name="server">Nombre del servidor SQL</param>
+            <param name="database">Nombre de la base de datos</param>
+            <param name="user">Usuario para conectarse a la base de datos</param>
+            <param name="password">Password para conectarse a la base de datos</param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.substracParametersInQuery(System.Collections.Generic.Dictionary{System.String,System.Object},System.String@)">
+            <summary>
+            Busca todas las coincidencias de parametros en formato @\w+ y crea un subconjunto de los parametros solicitados.
+            La razon por la cual se usa una lista de pares y no un diccionario es debido a que en HanaCommand no se pueden usar @param en el query, en su lugar solo '?'.
+            Por tanto un parámetro repetido debe aparecer varias veces en en el orden correcto, a diferencia del SQLCommand
+            </summary>
+            <param name="parameters"></param>
+            <param name="query">Se modifica el query cambiando cada parametro por '?' </param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.ExecuteNonQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo INSERT, DELETE o UPDATE, la cual tiene 
+            valores de parametros
+            </summary>
+            <param name="query">Query por ejecutar</param>
+        </member>
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.SelectMany(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo SELECT y devuelve un DataTable con el resultado
+            </summary>
+            <param name="query">String con la consulta</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Hana.DBAccessHana.SelectOne(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})" -->
+        <member name="M:Novitec.Mupet.Hana.DBAccessHana.SelectEscalar(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Usado para Select excalares
+            </summary>
+            <returns>Retorna el primer valor de la primer fila de una consulta</returns>
+        </member>
+        <member name="T:Novitec.Mupet.Properties.LogAttemptResources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Attach_LogAttemptObject_Log">
+            <summary>
+              Busca una cadena traducida similar a 
+                 INSERT INTO &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT_LOG_WS&quot;
+                      (&quot;LOG_ATTEMPT_OBJECT_ID&quot;
+                      ,&quot;LOG_WS_ID&quot;
+                      ,&quot;STATUS&quot;)
+                  VALUES
+                      (@attempt_id
+                      ,@log_id
+                     ,@status)
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_AutocompleteAttemptType">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT &quot;OBJ_TYPE&quot; AS name FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; WHERE CONTAINS(&quot;OBJ_TYPE&quot;, @query).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Exist_LogAttemptObject">
+             <summary>
+               Busca una cadena traducida similar a SELECT IFNULL(MAX(&quot;ID&quot;),0) as ID FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE &quot;OBJ_ID&quot;=@obj_id AND &quot;OBJ_TYPE&quot; = @obj_type  AND &quot;DIRECTION&quot; = @direction AND &quot;ACTION&quot; = @action
+                .
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Insert_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+                      (&quot;CREATED&quot;
+                      ,&quot;TRIED&quot;
+                      ,&quot;DIRECTION&quot;
+                      ,&quot;ACTION&quot;
+                      ,&quot;OBJ_TYPE&quot;
+                      ,&quot;OBJ_ID&quot;
+                      ,&quot;LATEST_LOG&quot;
+                      ,&quot;STATUS&quot;
+                      ,&quot;SAP_HOOK&quot;
+                      ,&quot;THIRDPARTY_HOOK&quot;
+                      ,&quot;NVT_CODE&quot;
+                      ,&quot;NVT_MESSAGE&quot;
+                      ,&quot;SAP_CODE&quot;
+                      ,&quot;SAP_MESSAGE&quot;)
+                  VALUES
+                      (CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      ,CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_NOTIN_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a CAST({fieldName} AS VARCHAR(100)) NOT IN(SELECT &quot;OBJ_ID&quot; FROM  &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE &quot;OBJ_TYPE&quot; = &apos;{objType}&apos; AND &quot;DIRECTION&quot; = &apos;{direction}&apos; AND &quot;ACTION&quot; = &apos;{action}&apos; AND &quot;STATUS&quot; IN (&apos;N&apos;, &apos;E&apos;, &apos;PE&apos;) AND CAST(CURRENT_TIMESTAMP AS DATETIME) &lt;= ADD_SECONDS (&quot;TRIED&quot;, {afterHours}*60*60) ) .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Remove_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE &quot;OBJ_ID&quot;=@obj_id AND &quot;OBJ_TYPE&quot; = @obj_type.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_RemoveOld_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+            WHERE  &quot;&quot;OBJ_TYPE&quot; = @obj_type AND ADD_SECONDS (&quot;TRIED&quot;, @after_hours*60*60) ) &lt; CAST(CURRENT_TIMESTAMP AS DATETIME).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_SELECT_LogAttemptObjectByLogId">
+             <summary>
+               Busca una cadena traducida similar a 
+            SELECT A.&quot;ID&quot;
+            FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; A
+            INNER JOIN &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT_LOG_WS&quot; B ON A.&quot;ID&quot; = B.&quot;LOG_ATTEMPT_OBJECT_ID&quot;
+            WHERE B.&quot;LOG_WS_ID&quot; = @latest_log 
+            AND A.&quot;DIRECTION&quot; = @direction ANd A.&quot;ACTION&quot; = @action AND A.&quot;OBJ_TYPE&quot; = @obj_type
+                .
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Select_LOGTPATTEMPTS">
+             <summary>
+               Busca una cadena traducida similar a SELECT 
+            	{select} 
+            FROM 
+            	&quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; t0
+            WHERE  
+            	{where} {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_SelectOne_LOG_ATTEMPT">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; WHERE ID = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Update_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a 
+             UPDATE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+             SET &quot;DIRECTION&quot; = @direction
+               ,&quot;ACTION&quot; = @action
+               ,&quot;SAP_HOOK&quot; = @sap_hook
+               ,&quot;THIRDPARTY_HOOK&quot; = @thirdparty_hook
+               ,&quot;LATEST_LOG&quot; = @latest_log
+               ,&quot;STATUS&quot; = @status
+               ,&quot;NVT_CODE&quot; = @nvt_code
+               ,&quot;NVT_MESSAGE&quot; = @nvt_message
+               ,&quot;SAP_CODE&quot; = @sap_code
+               ,&quot;SAP_MESSAGE&quot; = @sap_message
+               ,&quot;TRIED&quot; = CAST(CURRENT_TIMESTAMP AS DATETIME)
+            WHERE &quot;ID&quot;=@id
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Update_LogAttemptObject_Log">
+            <summary>
+              Busca una cadena traducida similar a 
+                 UPDATE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT_LOG_WS&quot;
+                 SET &quot;STATUS&quot; = @status
+                 WHERE &quot;LOG_WS_ID&quot; = @log_id AND &quot;LOG_ATTEMPT_OBJECT_ID&quot; = @attempt_id
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Update_LogAttemptObjectByLogId">
+            <summary>
+              Busca una cadena traducida similar a 
+             UPDATE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+             SET &quot;DIRECTION&quot; = @direction
+               ,&quot;ACTION&quot; = @action
+               ,&quot;SAP_HOOK&quot; = @sap_hook
+               ,&quot;THIRDPARTY_HOOK&quot; = @thirdparty_hook
+               ,&quot;LATEST_LOG&quot; = @latest_log
+               ,&quot;STATUS&quot; = @status
+               ,&quot;NVT_CODE&quot; = @nvt_code
+               ,&quot;NVT_MESSAGE&quot; = @nvt_message
+               ,&quot;SAP_CODE&quot; = @sap_code
+               ,&quot;SAP_MESSAGE&quot; = @sap_message
+               ,&quot;TRIED&quot; = CAST(CURRENT_TIMESTAMP AS DATETIME)
+            WHERE &quot;ID&quot; IN ({SelectIds})
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.HANA_Update_LogAttemptObjectByLogId_Log">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT_LOG_WS&quot;
+                 SET &quot;STATUS&quot; = @status
+                 WHERE &quot;LOG_WS_ID&quot; = @latest_log AND &quot;LOG_ATTEMPT_OBJECT_ID&quot; IN ({SelectIds})
+                 .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Attach_LogAttemptObject_Log">
+            <summary>
+              Busca una cadena traducida similar a 
+                 INSERT INTO [{MupetDB}]..[LOG_ATTEMPT_OBJECT_LOG_WS]
+                      ([log_attempt_object_id]
+                      ,[log_ws_id]
+                      ,[status])
+                  VALUES
+                      (CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      ,@attempt_id
+                      ,@log_id
+                     ,@status)   
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_AutocompleteAttemptType">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT [obj_type] AS name FROM [{MupetDB}]..[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) WHERE [obj_type] LIKE @query.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Exist_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a SELECT ISNULL(Max(id),0) as id FROM [{MupetDB}]..[LOG_ATTEMPT_OBJECT] WITH(NOLOCK) 
+            WHERE [obj_id]=@obj_id AND [obj_type] = @obj_type AND [direction] = @direction AND [action] = @action
+            .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Insert_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}]..[LOG_ATTEMPT_OBJECT]
+                      ([created]
+                      ,[tried]
+                      ,[direction]
+                      ,[action]
+                      ,[obj_type]
+                      ,[obj_id]
+                      ,[latest_log]
+                      ,[status]
+                      ,[sap_hook]
+                      ,[thirdparty_hook]
+                      ,[nvt_code]
+                      ,[nvt_message]
+                      ,[sap_code]
+                      ,[sap_message])
+                VALUES
+                      (GETDATE()
+                      ,GETDATE()
+                      ,@direction
+                      ,@action
+                      ,@obj_t [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_NOTIN_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a CAST({fieldName} AS VARCHAR(100)) NOT IN(SELECT obj_id FROM [{MupetDB}]..[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) 
+            WHERE [obj_type]= &apos;{objType}&apos; AND [direction]= &apos;{direction}&apos; AND [action]= &apos;{action}&apos; AND [status]  IN (&apos;N&apos;, &apos;E&apos;, &apos;PE&apos;) AND GETDATE() &lt;= dateadd(hour,{afterHours},[tried]) ).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_SELECT_LogAttemptObjectByLogId">
+             <summary>
+               Busca una cadena traducida similar a SELECT A.[id]
+            FROM [{MupetDB}]..[LOG_ATTEMPT_OBJECT] A
+            INNER JOIN [{MupetDB}]..[LOG_ATTEMPT_OBJECT_LOG_WS] B ON A.id = B.log_attempt_object_id
+            WHERE B.log_ws_id = @latest_log 
+            AND A.[direction] = @direction ANd A.[action] = @action AND A.[obj_type] = @obj_type
+            .
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Select_LOGTPATTEMPTS">
+             <summary>
+               Busca una cadena traducida similar a SELECT {select} 
+            FROM  [{MupetDB}]..[LOG_ATTEMPT_OBJECT] T0 WITH(NOLOCK) 
+            WHERE {where} 
+            {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_SelectOne_LOG_ATTEMPT">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM [{MupetDB}]..[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) WHERE id = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Update_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}]..[LOG_ATTEMPT_OBJECT]
+              SET [direction] = @direction
+                 ,[action] = @action
+                 ,[sap_hook] = @sap_hook
+                 ,[thirdparty_hook] = @thirdparty_hook
+                 ,[latest_log] = @latest_log
+                 ,[status] = @status
+                 ,[nvt_code] = @nvt_code
+                 ,[nvt_message] = @nvt_message
+                 ,[sap_code] = @sap_code
+                 ,[sap_message] = @sap_message
+                 ,[tried] = getdate()
+            WHERE [id]=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Update_LogAttemptObject_Log">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}]..[LOG_ATTEMPT_OBJECT_LOG_WS]
+                 SET [status] = @status
+                 WHERE [log_ws_id] = @log_id AND [log_attempt_object_id]= @attempt_id 
+               .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Update_LogAttemptObjectByLogId">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}]..[LOG_ATTEMPT_OBJECT]
+              SET [direction] = @direction
+                 ,[action] = @action
+                 ,[sap_hook] = @sap_hook
+                 ,[thirdparty_hook] = @thirdparty_hook
+                 ,[latest_log] = @latest_log
+                 ,[status] = @status
+                 ,[nvt_code] = @nvt_code
+                 ,[nvt_message] = @nvt_message
+                 ,[sap_code] = @sap_code
+                 ,[sap_message] = @sap_message
+                 ,[tried] = getdate()
+            WHERE [id] IN ({SelectIds}).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.LogAttemptResources.SAP_Update_LogAttemptObjectByLogId_Log">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}]..[LOG_ATTEMPT_OBJECT_LOG_WS]
+                 SET [status] = @status
+                 WHERE [log_ws_id] = @latest_log AND [log_attempt_object_id] IN ({SelectIds})
+               .
+            </summary>
+        </member>
+        <member name="T:Novitec.Mupet.Properties.ObsoleteResources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_AutocompleteAttemptType">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT &quot;OBJ_TYPE&quot; AS name FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; WHERE CONTAINS(&quot;OBJ_TYPE&quot;, @query).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Exist_LogAttemptObject">
+             <summary>
+               Busca una cadena traducida similar a 
+            SELECT COUNT(*) as CNT FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE &quot;OBJ_ID&quot;=@obj_id AND &quot;OBJ_TYPE&quot; = @obj_type    
+                .
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Insert_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+                      (&quot;TRIED&quot;
+                      ,&quot;OBJ_TYPE&quot;
+                      ,&quot;OBJ_ID&quot;
+                      ,&quot;NVT_CODE&quot;
+                      ,&quot;NVT_MESSAGE&quot;
+                      ,&quot;SAP_CODE&quot;
+                      ,&quot;SAP_MESSAGE&quot;)
+                  VALUES
+                      (CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      ,@obj_type
+                      ,@obj_id
+                      ,@nvt_code
+                      ,@nvt_message
+                      ,@sap_code
+                     ,@sap_message).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_NOTIN_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a CAST({fieldName} AS VARCHAR(100)) NOT IN(SELECT &quot;OBJ_ID&quot; FROM  &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE &quot;OBJ_TYPE&quot; = &apos;{objType}&apos; AND CAST(CURRENT_TIMESTAMP AS DATETIME) &lt;= ADD_SECONDS (&quot;TRIED&quot;, {afterHours}*60*60) ) .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Remove_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE  &quot;OBJ_ID&quot;=@obj_id AND &quot;OBJ_TYPE&quot; = @obj_type.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Remove_LogAttemptObjectById">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+            WHERE  &quot;ID&quot;=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_RemoveOld_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+            WHERE  &quot;&quot;OBJ_TYPE&quot; = @obj_type AND ADD_SECONDS (&quot;TRIED&quot;, @after_hours*60*60) ) &lt; CAST(CURRENT_TIMESTAMP AS DATETIME).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Select_LOGTPATTEMPTS">
+             <summary>
+               Busca una cadena traducida similar a SELECT 
+            	{select} 
+            FROM 
+            	&quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; t0
+            WHERE  
+            	{where} {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_SelectOne_LOG_ATTEMPT">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; WHERE ID = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_SelectOne_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE ID = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.HANA_Update_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;
+              SET &quot;NVT_CODE&quot; = @nvt_code
+                 ,&quot;NVT_MESSAGE&quot; = @nvt_message
+                 ,&quot;SAP_CODE&quot; = @sap_code
+                 ,&quot;SAP_MESSAGE&quot; = @sap_message
+                 ,&quot;TRIED&quot; = CAST(CURRENT_TIMESTAMP AS DATETIME)
+            WHERE  &quot;OBJ_ID&quot;=@obj_id AND &quot;OBJ_TYPE&quot; = @obj_type.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_AutocompleteAttemptType">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT [obj_type] AS name FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) WHERE [obj_type] LIKE @query.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Exist_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a SELECT count(*) as cnt FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT] WITH(NOLOCK) 
+            WHERE [obj_id]=@obj_id AND [obj_type] = @obj_type.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Insert_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]
+                      ([tried]
+                      ,[obj_type]
+                      ,[obj_id]
+                      ,[nvt_code]
+                      ,[nvt_message]
+                      ,[sap_code]
+                      ,[sap_message])
+                VALUES
+                      (GETDATE()
+                      ,@obj_type
+                      ,@obj_id
+                      ,@nvt_code
+                      ,@nvt_message
+                      ,@sap_code
+                     ,@sap_message).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_NOTIN_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a CAST({fieldName} AS VARCHAR(100)) NOT IN(SELECT obj_id FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) 
+            WHERE [obj_type]= &apos;{objType}&apos; AND GETDATE() &lt;= dateadd(hour,{afterHours},[tried]) ).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Remove_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]
+            WHERE [obj_id]=@obj_id AND [obj_type] = @obj_type.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Remove_LogAttemptObjectById">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]
+            WHERE  [id] = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_RemoveOld_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]
+            WHERE [obj_type]=@obj_type AND dateadd(hour,@after_hours,[tried]) &lt; GETDATE().
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Select_LOGTPATTEMPTS">
+             <summary>
+               Busca una cadena traducida similar a SELECT {select} 
+            FROM  [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT] T0 WITH(NOLOCK) 
+            WHERE {where} 
+            {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_SelectOne_LOG_ATTEMPT">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]  WITH(NOLOCK) WHERE id = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.ObsoleteResources.SAP_Update_LogAttemptObject">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT]
+              SET [nvt_code] = @nvt_code
+                 ,[nvt_message] = @nvt_message
+                 ,[sap_code] = @sap_code
+                 ,[sap_message] = @sap_message
+                 ,[tried] = getdate()
+            WHERE [obj_id]=@obj_id AND [obj_type] = @obj_type.
+            </summary>
+        </member>
+        <member name="T:Novitec.Mupet.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.Culture">
+            <summary>
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_AutocompleteAction">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT &quot;ACTION&quot; as name, &quot;WS_GROUP&quot; AS wsgroup FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE CONTAINS(&quot;WS_GROUP&quot;, @group) AND CONTAINS(&quot;ACTION&quot;, @query).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_AutocompleteAttemptType">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT &quot;OBJ_TYPE&quot; AS name FROM &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot; WHERE CONTAINS(&quot;OBJ_TYPE&quot;, @query).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_AutocompleteGroup">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT &quot;WS_GROUP&quot; AS name FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE CONTAINS(&quot;WS_GROUP&quot;, @query).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_AutocompleteTable">
+            <summary>
+              Busca una cadena traducida similar a .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_AutocompleteTableField">
+            <summary>
+              Busca una cadena traducida similar a .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_CheckProc">
+             <summary>
+               Busca una cadena traducida similar a SELECT COUNT(*) FROM SYS.PROCEDURES where Schema_Name = &apos;{MupetDB}&apos;
+            AND PROCEDURE_NAME = @name.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_CheckTable">
+             <summary>
+               Busca una cadena traducida similar a SELECT COUNT(*) FROM SYS.TABLE_COLUMNS where Schema_Name = &apos;{MupetDB}&apos;
+            AND TABLE_NAME = @name.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_DropProc">
+            <summary>
+              Busca una cadena traducida similar a DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;{Name}&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Insert_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a CALL &quot;{MupetDB}&quot;.&quot;proc_LogWSInsert&quot;
+                      (@created
+                      ,@ws_group
+                      ,@parent_id
+                      ,@action
+                      ,@visual_aid_label
+                      ,@visual_aid_value
+                      ,@input
+                      ,@sap_hook
+                      ,@thirdparty_hook).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Insert_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a CALL &quot;{MupetDB}&quot;.&quot;proc_PrintQueueInsert&quot; 
+                      (CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      ,@station
+                      ,@docType
+                      ,@docId
+                      ,@quantity
+                      ,@options).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Insert_Session">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO &quot;{MupetDB}&quot;.&quot;SESSION&quot;
+                      (&quot;TOKEN&quot;
+                      ,&quot;USERNAME&quot;
+                      ,&quot;SESSIONID&quot;
+                      ,&quot;CREATED&quot;
+                      ,&quot;UPDATED&quot;
+                      ,&quot;EXPIRES&quot;)
+                  VALUES
+                      (@token
+                      ,@username
+                      ,@sessionid
+                      ,CAST(CURRENT_TIMESTAMP AS DATETIME)
+                      ,CAST(CURRENT_TIMESTAMP AS DATETIME)
+                     ,{AuthExpires}).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Insert_THIRDPARTY_WS">
+            <summary>
+              Busca una cadena traducida similar a CALL &quot;{MupetDB}&quot;.&quot;proc_ThirdpartyWSInsert&quot;
+                      (@parent_id
+                      ,@created
+                      ,@action
+                      ,@input
+                      ,@output
+                      ,@status).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Inserted_LOGWS_Id">
+            <summary>
+              Busca una cadena traducida similar a SELECTtop 1 &quot;ID&quot; FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; ORDER BY &quot;ID&quot;   DESC.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Inserted_THIRDPARTY_WS_Id">
+            <summary>
+              Busca una cadena traducida similar a SELECT top 1 &quot;ID&quot; FROM &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot; ORDER BY &quot;ID&quot;   DESC.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Remove_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Remove_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot;
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Remove_Session">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;SESSION&quot;
+            WHERE TOKEN=@token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Remove_Session_Expired">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM &quot;{MupetDB}&quot;.&quot;SESSION&quot;
+            WHERE &quot;EXPIRES&quot;&gt;0 AND ADD_SECONDS(&quot;UPDATED&quot;, &quot;EXPIRES&quot;) &lt; CAST(CURRENT_TIMESTAMP AS DATETIME).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_LOGTPWS">
+             <summary>
+               Busca una cadena traducida similar a SELECT 
+            	{select} 
+            FROM 
+            	&quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot; t0
+            	LEFT JOIN &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; t1
+            	ON t0.&quot;PARENT_ID&quot; = t1.&quot;ID&quot;
+            WHERE  
+            	{where} {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_LOGWS">
+             <summary>
+               Busca una cadena traducida similar a SELECT {select} 
+            FROM  &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; T0
+            WHERE parent_id is null AND id IN (
+            	SELECT CASE WHEN parent_id IS NULL  THEN id ELSE parent_id END AS parent_id
+            	FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+            	WHERE {where} 
+            ) {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_LOGWS_Detail">
+            <summary>
+              Busca una cadena traducida similar a SELECT {select} FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE  {where} {orderby}.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_LOGWS_Pending">
+            <summary>
+              Busca una cadena traducida similar a SELECT TOP {Max} &quot;ID&quot; FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE &quot;STATUS&quot; = &apos;P&apos; AND WS_GROUP=@ws_group AND &quot;ACTION&quot;=@action ORDER BY &quot;CREATED&quot; ASC.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_PrintQueue">
+             <summary>
+               Busca una cadena traducida similar a SELECT {TOP}  * FROM &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot; PQ 
+            WHERE (IFNULL(@station,&apos;&apos;) = &apos;&apos; OR PQ.&quot;STATION&quot; = @station) AND IFNULL(PQ.&quot;STATUS&quot;,&apos;&apos;) != @success
+            ORDER BY PQ.&quot;STATUS&quot;, PQ.&quot;CREATED&quot;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Select_PrintQueueStations">
+            <summary>
+              Busca una cadena traducida similar a SELECT distinct station as name FROM &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_SelectOne_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;LOG_WS&quot; WHERE ID = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_SelectOne_Session">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;SESSION&quot; WHERE TOKEN = @token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_SelectOne_THIRDPARTY_WS">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot; WHERE ID = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_SelectOne_User">
+             <summary>
+               Busca una cadena traducida similar a SELECT &quot;USER_CODE&quot; as username, IFNULL(&quot;U_NAME&quot;,&apos;&apos;) as name, &quot;{RoleField}&quot; as role, ( CASE WHEN &quot;Locked&quot; = &apos;N&apos; THEN &apos;Y&apos; ELSE &apos;N&apos; END) as active
+            FROM &quot;{BaseDeDatos}&quot;.&quot;OUSR&quot;
+            WHERE &quot;GROUPS&quot; &lt;&gt; 99 AND &quot;USER_CODE&quot; =@username.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_TipoCambioUltimoMesSelect">
+             <summary>
+               Busca una cadena traducida similar a SELECT * 
+            FROM  &quot;{BaseDeDatos}&quot;.&quot;ORTT&quot;
+            WHERE 
+            &quot;RateDate&quot; BETWEEN @inicio AND @fin.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Update_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+              SET&quot;VISUAL_AID_LABEL&quot; = @visual_aid_label
+                 ,&quot;VISUAL_AID_VALUE&quot; = @visual_aid_value
+                 ,&quot;OUTPUT&quot; = @output
+                 ,&quot;OLD_INPUT&quot; = @old_input
+                 ,&quot;NVT_CODE&quot; = @nvt_code
+                 ,&quot;NVT_MESSAGE&quot; = @nvt_message
+                 ,&quot;SAP_CODE&quot; = @sap_code
+                 ,&quot;SAP_MESSAGE&quot; = @sap_message
+                 ,&quot;SAP_HOOK&quot; =  @sap_hook
+                 ,&quot;THIRDPARTY_HOOK&quot; = @thirdparty_hook
+                 ,&quot;STATUS&quot; = @status
+                 ,&quot;FINISHED&quot; = @finished
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Update_LOGWS_WithInput">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+              SET &quot;VISUAL_AID_LABEL&quot; = @visual_aid_label
+                 ,&quot;VISUAL_AID_VALUE&quot; = @visual_aid_value
+                 ,&quot;INPUT&quot; = @input
+                 ,&quot;OUTPUT&quot; = @output
+                 ,&quot;OLD_INPUT&quot; = @old_input
+                 ,&quot;NVT_CODE&quot; = @nvt_code
+                 ,&quot;NVT_MESSAGE&quot; = @nvt_message
+                 ,&quot;SAP_CODE&quot; = @sap_code
+                 ,&quot;SAP_MESSAGE&quot; = @sap_message
+                 ,&quot;SAP_HOOK&quot; = @sap_hook
+                 ,&quot;THIRDPARTY_HOOK&quot; = @thirdparty_hook
+                 ,&quot;STATUS&quot; = @status
+                 ,&quot;FINISHED&quot; = @finished
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Update_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot;
+              SET &quot;ERROR&quot; = @error
+                 ,&quot;ERROR_FULL&quot; = @full
+                 ,&quot;STATUS&quot; = @status
+                 ,&quot;UPDATED&quot; = CAST(CURRENT_TIMESTAMP AS DATETIME)
+            WHERE &quot;STATION&quot; = @station AND &quot;ID&quot; IN ({ids}).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_Update_Session">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;SESSION&quot; SET &quot;UPDATED&quot;=CAST(CURRENT_TIMESTAMP AS DATETIME) WHERE TOKEN = @token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_UpdateRetry_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+              SET &quot;OLD_INPUT&quot; = &quot;INPUT&quot;
+                 ,&quot;INPUT&quot; = @input
+                 ,&quot;OUTPUT&quot; = @output
+                 ,&quot;SAP_HOOK&quot; =  @sap_hook
+                 ,&quot;THIRDPARTY_HOOK&quot; = @thirdparty_hook
+                 ,&quot;STATUS&quot; = @status
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_UpdateStatus_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+              SET &quot;STATUS&quot; = @status
+            WHERE ID=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.HANA_VerificarTipoCambioActualSelect">
+             <summary>
+               Busca una cadena traducida similar a SELECT IFNULL(&quot;Rate&quot;,0) AS Rate
+            FROM &quot;{BaseDeDatos}&quot;.&quot;ORTT&quot;
+            WHERE 
+            &quot;Currency&quot; = @moneda AND
+            &quot;RateDate&quot; = @fecha.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.InitMupetDB">
+             <summary>
+               Busca una cadena traducida similar a --NO UTILIZAR EL COMANDO GO EN ESTE ARCHIVO
+            
+            IF OBJECT_ID(N&apos;[{MupetDB}].dbo.LOG_ATTEMPT_OBJECT&apos;, N&apos;U&apos;) IS NULL
+            BEGIN
+            	CREATE TABLE [{MupetDB}].[dbo].[LOG_ATTEMPT_OBJECT](
+            		[id] [int] IDENTITY(1,1) NOT NULL,
+            		[created] [datetime] NOT NULL,
+            		[tried] [datetime] NOT NULL,
+            		[direction] [varchar](20) NULL,
+            		[action] [varchar](200) NULL,
+            		[obj_type] [varchar](100) NULL,
+            		[obj_id] [varchar](100) NULL,
+            		[nvt_code] [int] NULL,
+            		[nvt_message] [varchar](MAX) NULL,
+            		[sap_code] [int] NULL,
+            		[sap [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_LOG_ATTEMPT_OBJECT">
+            <summary>
+              Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT&quot;  ( 
+            	ID 					INT 			NOT NULL GENERATED BY DEFAULT AS IDENTITY,
+            	CREATED 			DATETIME 		NOT NULL,
+            	TRIED 				DATETIME 		NOT NULL,
+            	DIRECTION 			VARCHAR(20) 	NOT NULL,
+            	ACTION 				VARCHAR(200) 	NOT NULL,
+            	OBJ_TYPE 			VARCHAR(100) 	NOT NULL,
+            	OBJ_ID 				VARCHAR(100) 	NOT NULL,
+            	NVT_CODE 			INT 			NULL,
+            	NVT_MESSAGE 		NCLOB 	NULL,
+            	SAP_CODE 			INT 			NULL,
+            	SAP_MESSAGE 		NCLOB 	NULL,
+            	SAP_HOOK 			NCLOB 	NULL,
+            	THIRDPARTY_HOOK 	NCLOB 	 [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_LOG_ATTEMPT_OBJECT_LOG_WS">
+             <summary>
+               Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;LOG_ATTEMPT_OBJECT_LOG_WS&quot;  ( 
+            		LOG_ATTEMPT_OBJECT_ID 					INT 			NOT NULL,
+            		LOG_WS_ID 					INT 			NOT NULL,
+            		STATUS 				VARCHAR(10) 	NOT NULL,
+                    PRIMARY KEY (LOG_ATTEMPT_OBJECT_ID, LOG_WS_ID)
+            	);
+            .
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_LOG_WS">
+            <summary>
+              Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;  ( 
+            	ID 					INT 			NOT NULL GENERATED BY DEFAULT AS IDENTITY,
+            	CREATED 			DATETIME 		NOT NULL,
+            	FINISHED 			DATETIME 		NULL,
+            	WS_GROUP 			VARCHAR(20) 	NOT NULL,
+            	PARENT_ID 			INT 			NULL,
+            	ACTION 				VARCHAR(100) 	NOT NULL,
+            	VISUAL_AID_LABEL 	VARCHAR(100) 	NULL,
+            	VISUAL_AID_VALUE 	VARCHAR(100) 	NULL,
+            	INPUT 				NCLOB 	NOT NULL,
+            	OLD_INPUT 			NCLOB 	NULL,
+            	OUTPUT 				NCLOB 	NULL,
+            	NVT_CODE 			INT 			NULL,
+            	NVT_MESSAGE 		NCLOB 	NULL,
+            	SAP_C [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_LOG_WS_HISTORY">
+            <summary>
+              Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;LOG_WS_HISTORY&quot;  ( 
+            	ID 					INT 			NOT NULL,
+            	CREATED 			DATETIME 		NOT NULL,
+            	FINISHED 			DATETIME 		NULL,
+            	WS_GROUP 			VARCHAR(100) 	NOT NULL,
+            	PARENT_ID 			INT 			NULL,
+            	ACTION 				VARCHAR(100) 	NOT NULL,
+            	VISUAL_AID_LABEL 	VARCHAR(100) 	NULL,
+            	VISUAL_AID_VALUE 	VARCHAR(100) 	NULL,
+            	INPUT 				NCLOB 	NOT NULL,
+            	OLD_INPUT 			NCLOB 	NULL,
+            	OUTPUT 				NCLOB 	NULL,
+            	NVT_CODE 			INT 			NULL,
+            	NVT_MESSAGE 		NCLOB 	NULL,
+            	SAP_CODE 			INT 			NULL,
+            	S [resto de la cadena truncado]&quot;;.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PRINT_QUEUE">
+             <summary>
+               Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot;  ( 
+            		ID 					INT 			NOT NULL GENERATED BY DEFAULT AS IDENTITY,
+            		STATION			VARCHAR(50) 	NOT NULL,
+            		DOC_TYPE				VARCHAR(50) 	NOT NULL,
+            		DOC_ID				VARCHAR(100) 	NOT NULL,
+            		CREATED 			DATETIME 		NOT NULL,
+            		UPDATED 			DATETIME 		NULL,
+            		QUANTITY 			INT 		NOT NULL,
+            		STATUS 				VARCHAR(50) 	NULL,
+            		ERROR				VARCHAR(500) 	NULL,
+            		ERROR_FULL 			NCLOB 	NULL,
+            		OPTIONS 			NCLOB 	NULL,
+                    PRIMARY KEY (ID)
+            	);
+            
+            
+            create  index &quot;IX_PRINT_QUEUE_STATI [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PROC_LOG_WS_Insert">
+             <summary>
+               Busca una cadena traducida similar a DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_LogWSInsert&quot;;
+            CREATE PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_LogWSInsert&quot;(
+            IN
+            	CREATED 			DATETIME,
+            	WS_GROUP 			VARCHAR(20),
+            	PARENT_ID 			INT,
+            	ACTION 				VARCHAR(100),
+            	VISUAL_AID_LABEL 	VARCHAR(100),
+            	VISUAL_AID_VALUE 	VARCHAR(100),
+            	INPUT 				NCLOB,
+            	SAP_HOOK 			NCLOB,
+            	THIRDPARTY_HOOK 	NCLOB
+            )
+            LANGUAGE SQLSCRIPT SQL SECURITY INVOKER
+            AS
+            	-- Return values
+            	ID  int;				-- Result (0 for no error)
+            BEGIN
+            	INSERT INTO &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;
+                       (&quot;CREATED&quot;
+                    [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PROC_MupetBackUpHistoryLog">
+             <summary>
+               Busca una cadena traducida similar a --DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_MupetBackUpHistoryLog&quot;;
+            CREATE PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_MupetBackUpHistoryLog&quot; (IN BackupBefore datetime,IN DeleteBefore datetime)
+            LANGUAGE SQLSCRIPT SQL SECURITY INVOKER
+            AS
+            BEGIN	
+            	INSERT INTO &quot;{MupetDB}&quot;.&quot;LOG_WS_HISTORY&quot;(
+            		&quot;ID&quot;,&quot;CREATED&quot;,&quot;FINISHED&quot;,&quot;WS_GROUP&quot;,&quot;PARENT_ID&quot;,&quot;ACTION&quot;,&quot;VISUAL_AID_LABEL&quot;,&quot;VISUAL_AID_VALUE&quot;,
+            		&quot;INPUT&quot;,&quot;OLD_INPUT&quot;,&quot;OUTPUT&quot;,&quot;NVT_CODE&quot;,&quot;NVT_MESSAGE&quot;,&quot;SAP_CODE&quot;,&quot;SAP_MESSAGE&quot;,&quot;SAP_HOOK&quot;,&quot;THIRDPARTY_HOOK&quot;,&quot;STATUS&quot;)
+            	SELECT 	
+            		&quot;ID&quot;,&quot;CREA [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PROC_MupetEvent">
+             <summary>
+               Busca una cadena traducida similar a DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_MupetEventHana&quot;;
+            CREATE PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_MupetEventHana&quot;(
+            IN
+            	GetAction 			VARCHAR(100),
+            	GetParams 			VARCHAR(200),
+            OUT
+            	OutputCode 			INTEGER,
+            OUT
+            	OutputMessage 		VARCHAR(200))
+            LANGUAGE SQLSCRIPT SQL SECURITY INVOKER
+            AS
+            BEGIN
+            	DECLARE Obj 		INTEGER;
+            	DECLARE prefix 		VARCHAR(100);
+            	DECLARE url 		VARCHAR(8000);
+            	DECLARE response  	VARCHAR(8000);
+            
+            	OutputCode 		:= 0;
+            	OutputMessage 	:= NULL;
+            	response 		:= NULL;
+            	prefix 			:= &apos;http://nvt-desar [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PROC_PRINT_QUEUE_Insert">
+             <summary>
+               Busca una cadena traducida similar a DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_PrintQueueInsert&quot;;
+            CREATE PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_PrintQueueInsert&quot;(
+            IN
+            	CREATED				DATETIME,
+            	STATION				VARCHAR(50),
+            	DOC_TYPE			VARCHAR(50),
+            	DOC_ID				VARCHAR(100),
+            	QUANTITY 			INT,
+            	OPTIONS 			NCLOB
+            )
+            LANGUAGE SQLSCRIPT SQL SECURITY INVOKER
+            AS
+            	-- Return values
+            	ID  int;				-- Result (0 for no error)
+            BEGIN
+            	INSERT INTO &quot;{MupetDB}&quot;.&quot;PRINT_QUEUE&quot;
+            		(&quot;CREATED&quot;
+            		,&quot;STATION&quot;
+            		,&quot;DOC_TYPE&quot;
+            		,&quot;DOC_ID&quot;
+            		,&quot;QUANTITY&quot;
+            		,&quot;OPTIONS&quot;)
+            	VALUES
+            		(CREATED
+             [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_PROC_THIRDPARTY_WS_Insert">
+             <summary>
+               Busca una cadena traducida similar a DROP PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_ThirdpartyWSInsert&quot;;
+            CREATE PROCEDURE &quot;{MupetDB}&quot;.&quot;proc_ThirdpartyWSInsert&quot;(
+            IN
+            	PARENT_ID 	INT,
+            	CREATED 	DATETIME,
+            	ACTION 		VARCHAR(200),
+            	INPUT 		NCLOB,
+            	OUTPUT 		NCLOB,
+            	STATUS 		VARCHAR(10) DEFAULT &apos;N&apos;
+            )
+            LANGUAGE SQLSCRIPT SQL SECURITY INVOKER
+            AS
+            	-- Return values
+            	ID  int;				-- Result (0 for no error)
+            BEGIN
+            	INSERT INTO &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot;
+                       (&quot;PARENT_ID&quot;
+                       ,&quot;CREATED&quot;
+                       ,&quot;ACTION&quot;
+                       ,&quot;INPUT&quot;
+                       ,&quot;O [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_SESSION">
+             <summary>
+               Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;SESSION&quot;  ( 
+            		ID 					INT 			NOT NULL GENERATED BY DEFAULT AS IDENTITY,
+            		TOKEN				VARCHAR(200) 	NOT NULL,
+            		USERNAME			VARCHAR(200) 	NOT NULL,
+            		SESSIONID			VARCHAR(200) 	NULL,
+            		CREATED 			DATETIME 		NOT NULL,
+            		UPDATED 			DATETIME 		NULL,
+            		EXPIRES 			INT 		NOT NULL, /* time in seconds, -1 = never */
+            		DATA 				NCLOB 	NULL,
+                    PRIMARY KEY (ID)
+            	);
+            
+            
+            create  unique index &quot;IX_SESSION_TOKEN&quot; on &quot;{MupetDB}&quot;.&quot;SESSION&quot; (&quot;TOKEN&quot;) ;
+            create  index &quot;IX_SESSION_U [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_THIRDPARTY_WS">
+             <summary>
+               Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot;(
+            	ID 			INT 			NOT NULL GENERATED BY DEFAULT AS IDENTITY,
+            	PARENT_ID 	INT 			NOT NULL,
+            	CREATED 	DATETIME 		NOT NULL,
+            	ACTION 		VARCHAR(200) 	NOT NULL,
+            	INPUT 		NCLOB   NULL,
+            	OUTPUT 		NCLOB 	NULL,
+            	STATUS 		VARCHAR(10) 	NOT NULL DEFAULT &apos;N&apos;,
+            	PRIMARY KEY (ID)
+            );
+            ALTER TABLE &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS&quot; ADD CONSTRAINT FK FOREIGN KEY (PARENT_ID) REFERENCES &quot;{MupetDB}&quot;.&quot;LOG_WS&quot;(ID) ON DELETE CASCADE;
+            
+            
+            
+            
+            create index &quot;IX_THIRDPARTY_WS_CREATED&quot; on &quot; [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBHana_THIRDPARTY_WS_HISTORY">
+             <summary>
+               Busca una cadena traducida similar a CREATE COLUMN TABLE &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS_HISTORY&quot;(
+            	ID 			INT 			NOT NULL,
+            	PARENT_ID 	INT 			NOT NULL,
+            	CREATED 	DATETIME 		NOT NULL,
+            	ACTION 		VARCHAR(200) 	NOT NULL,
+            	INPUT 		NCLOB 	NULL,
+            	OUTPUT 		NCLOB 	NULL,
+            	STATUS 		VARCHAR(10) 	NOT NULL DEFAULT &apos;N&apos;,
+            	PRIMARY KEY (ID)
+            );
+            ALTER TABLE &quot;{MupetDB}&quot;.&quot;THIRDPARTY_WS_HISTORY&quot; ADD CONSTRAINT FKWSH FOREIGN KEY (PARENT_ID) REFERENCES &quot;{MupetDB}&quot;.&quot;LOG_WS_HISTORY&quot;(ID) ON DELETE CASCADE;
+            
+            
+            create index &quot;IX_THIRDPARTY_WS_HISTORY_CREATED&quot; on &quot;{Mu [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBSap_BackupTN_PostTN">
+             <summary>
+               Busca una cadena traducida similar a 
+            use {BaseDeDatos}
+            GO
+            
+            DROP PROCEDURE [dbo].proc_RegistroCambiosTransactionNotification
+            GO
+            DROP PROCEDURE [dbo].proc_RegistroCambiosPostTransactionNotice
+            GO
+            EXEC msdb.dbo.sp_delete_job  
+                @job_name = N&apos;CambiosTransactionNotification&apos; ;  
+            GO  
+            EXEC msdb.dbo.sp_delete_job  
+                @job_name = N&apos;CambiosPostTransactionNotice&apos; ;  
+            GO  
+            
+            
+            IF OBJECT_ID(N&apos;[{MupetDB}].dbo.CambiosTransactionNotification&apos;, N&apos;U&apos;) IS NULL
+            BEGIN
+            	CREATE TABLE [{MupetDB}].dbo.CambiosTransactionNotification(
+            		[id] 			[I [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBSap_PROC_MupetBackUpHistoryLog">
+             <summary>
+               Busca una cadena traducida similar a IF Object_Id(&apos;[dbo].proc_MupetBackUpHistoryLog&apos;) IS NOT NULL
+            BEGIN
+               DROP PROCEDURE [dbo].proc_MupetBackUpHistoryLog
+            END
+            GO
+            CREATE PROCEDURE [dbo].proc_MupetBackUpHistoryLog
+            	@BackupBefore datetime,
+            	@DeleteBefore datetime = NULL
+            AS
+            BEGIN
+            		
+            	INSERT INTO [{MupetDB}].[dbo].[THIRDPARTY_WS_HISTORY](id,parent_id,created,action,input,output,status)
+            	SELECT  id,parent_id,created,action,input,output,status
+            	FROM  [{MupetDB}].[dbo].[THIRDPARTY_WS]
+            	WHERE  created &lt;= @BackupBefore
+            
+            	DELETE [{MupetDB [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.initMupetDBSap_PROC_MuptEvent">
+             <summary>
+               Busca una cadena traducida similar a 
+            IF Object_Id(&apos;[dbo].proc_MupetEvent&apos;) IS NOT NULL
+            BEGIN
+               DROP PROCEDURE [dbo].proc_MupetEvent
+            END
+            GO
+            
+            CREATE PROCEDURE [dbo].proc_MupetEvent
+            	@GetAction varchar(100),
+            	@GetParams varchar(200),
+            	@OutputCode as int OUTPUT,
+            	@OutputMessage as varchar(200) OUTPUT
+            AS
+            BEGIN
+            	Declare @Obj INT
+            	Declare @prefix VARCHAR(100)
+            	Declare @url VARCHAR(8000)
+            	Declare @response  VARCHAR(8000)
+            	DECLARE @Result int
+            	SET @OutputCode = 0
+            	SET @OutputMessage = NULL
+            	SET @response = NULL
+            
+            	set @prefix =  [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_AutocompleteAction">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT [action] AS name, [ws_group] as wsgroup FROM [{MupetDB}].[dbo].[LOG_WS] WITH(NOLOCK) WHERE [ws_group] LIKE @group AND [action] LIKE @query.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_AutocompleteGroup">
+            <summary>
+              Busca una cadena traducida similar a SELECT DISTINCT [ws_group] AS name FROM [{MupetDB}].[dbo].[LOG_WS]  WITH(NOLOCK) WHERE [ws_group] LIKE @query.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_AutocompleteTable">
+             <summary>
+               Busca una cadena traducida similar a SELECT I.TABLE_NAME as [table], COALESCE(M.[description], &apos;&apos;) as [description],
+            (I.TABLE_NAME COLLATE SQL_Latin1_General_CP1_CI_AS)+ &apos; &apos; + COALESCE (M.[description], &apos;&apos;) as [name]
+            FROM [{BaseDeDatos}].[INFORMATION_SCHEMA].[TABLES] I
+            LEFT JOIN [{MupetDB}]..[METADATA] M ON I.TABLE_NAME COLLATE SQL_Latin1_General_CP1_CI_AS = M.[table] AND M.[field] is null 
+            WHERE TABLE_TYPE = &apos;BASE TABLE&apos;
+            AND (I.TABLE_NAME like @query OR M.[description] like @query)
+            ORDER BY TABLE_NAME ASC.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_AutocompleteTableField">
+             <summary>
+               Busca una cadena traducida similar a SELECT I.TABLE_NAME as [table],  I.COLUMN_NAME as [field], ISNULL( (I.DATA_TYPE+&apos;(&apos;+CAST(I.CHARACTER_MAXIMUM_LENGTH as varchar)+&apos;)&apos;) , I.DATA_TYPE) as [type], 
+            COALESCE (M.[description], M2.[description], &apos;&apos;) as [description],
+            (I.TABLE_NAME COLLATE SQL_Latin1_General_CP1_CI_AS) + &apos;.&apos; + (I.COLUMN_NAME COLLATE SQL_Latin1_General_CP1_CI_AS) + &apos; &apos; + COALESCE (M.[description], M2.[description], &apos;&apos;) as [name]
+            FROM [{BaseDeDatos}].[INFORMATION_SCHEMA].[COLUMNS] I
+            LEFT JOIN [{MupetDB}]..[METADATA] M ON I.COLUMN [resto de la cadena truncado]&quot;;.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Insert_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}].[dbo].[LOG_WS]
+                      ([created]
+                      ,[ws_group]
+                      ,[parent_id]
+                      ,[action]
+                      ,[visual_aid_label]
+                      ,[visual_aid_value]
+                      ,[input]
+                      ,[sap_hook]
+                      ,[thirdparty_hook])
+                VALUES
+                      (@created
+                      ,@ws_group
+                      ,@parent_id
+                      ,@action
+                      ,@visual_aid_label
+                      ,@visual_aid_value
+                      ,@input
+                      ,@sap_hook
+                      ,@thirdparty_hook).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Insert_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}].[dbo].[PRINT_QUEUE]
+                      ([created]
+                      ,[station]
+                      ,[doc_type]
+                      ,[doc_id]
+                      ,[quantity]
+                      ,[options])
+                VALUES
+                      (GETDATE()
+                      ,@station
+                      ,@docType
+                      ,@docId
+                      ,@quantity
+                      ,@options).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Insert_Session">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}].[dbo].[SESSION]
+                      ([token]
+                      ,[username]
+                      ,[sessionid]
+                      ,[created]
+                      ,[updated]
+                      ,[expires])
+                VALUES
+                      (@token
+                      ,@username
+                      ,@sessionid
+                      ,GETDATE()
+                      ,GETDATE()
+                     ,{AuthExpires}).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Insert_THIRDPARTY_WS">
+            <summary>
+              Busca una cadena traducida similar a INSERT INTO [{MupetDB}].[dbo].[THIRDPARTY_WS]
+                      ([parent_id]
+                      ,[created]
+                      ,[action]
+                      ,[input]
+                      ,[output]
+                      ,[status])
+                VALUES
+                      (@parent_id
+                      ,@created
+                      ,@action
+                      ,@input
+                      ,@output
+                      ,@status).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_PagingSelect">
+            <summary>
+              Busca una cadena traducida similar a ROW_NUMBER() OVER (ORDER BY (SELECT 1)) AS [ROW_NUMBER].
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_PagingSelectOrder">
+            <summary>
+              Busca una cadena traducida similar a ROW_NUMBER() OVER ({orderby}) AS [ROW_NUMBER].
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_PagingWrap">
+             <summary>
+               Busca una cadena traducida similar a SELECT * FROM ({query}) T WHERE T.ROW_NUMBER BETWEEN {rowFirst} AND {rowLast}
+            ORDER BY T.ROW_NUMBER.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Remove_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[LOG_WS]
+            WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Remove_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[PRINT_QUEUE] WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Remove_Session">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[SESSION] WHERE token=@token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Remove_Session_Expired">
+            <summary>
+              Busca una cadena traducida similar a DELETE FROM [{MupetDB}].[dbo].[SESSION] WHERE expires&gt;0 AND DATEADD (SECOND , expires , updated) &lt; GETDATE() .
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_LOGTPWS">
+             <summary>
+               Busca una cadena traducida similar a SELECT 
+            {select} 
+            FROM 
+            [{MupetDB}].[dbo].[THIRDPARTY_WS] t0
+            LEFT JOIN [{MupetDB}].[dbo].[LOG_WS] t1
+            ON t0.[parent_id] = t1.[id]
+            WHERE  {where} {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_LOGWS">
+             <summary>
+               Busca una cadena traducida similar a SELECT {select} 
+            FROM  [{MupetDB}].[dbo].[LOG_WS] T0 WITH(NOLOCK) 
+            WHERE parent_id is null AND id IN (
+            	SELECT CASE WHEN parent_id IS NULL  THEN id ELSE parent_id END AS parent_id
+            	FROM [{MupetDB}].[dbo].[LOG_WS] WITH(NOLOCK) 
+            	WHERE {where} 
+            ) {orderby}.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_LOGWS_Detail">
+            <summary>
+              Busca una cadena traducida similar a SELECT {select} FROM [{MupetDB}].[dbo].[LOG_WS] WITH(NOLOCK)  WHERE  {where} {orderby}.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_LOGWS_Pending">
+            <summary>
+              Busca una cadena traducida similar a SELECT TOP {Max} id FROM [{MupetDB}].[dbo].[LOG_WS]  WITH(NOLOCK) WHERE status = &apos;P&apos; AND ws_group = @ws_group AND action=@action ORDER BY created ASC.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_PrintQueue">
+             <summary>
+               Busca una cadena traducida similar a SELECT {TOP} * FROM [{MupetDB}]..[PRINT_QUEUE] PQ WITH(NOLOCK)
+            WHERE (ISNULL(@station,&apos;&apos;) = &apos;&apos; OR PQ.station = @station) AND ISNULL(PQ.[status],&apos;&apos;) != @success
+            ORDER BY PQ.[status], PQ.[created].
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Select_PrintQueueStations">
+            <summary>
+              Busca una cadena traducida similar a SELECT distinct station as name FROM [{MupetDB}]..[PRINT_QUEUE] WITH(NOLOCK).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_SelectOne_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM [{MupetDB}].[dbo].[LOG_WS]  WITH(NOLOCK) WHERE id = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_SelectOne_Session">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM [{MupetDB}].[dbo].[SESSION]  WITH(NOLOCK) WHERE token = @token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_SelectOne_THIRDPARTY_WS">
+            <summary>
+              Busca una cadena traducida similar a SELECT * FROM [{MupetDB}].[dbo].[THIRDPARTY_WS]  WITH(NOLOCK) WHERE id = @id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_SelectOne_User">
+             <summary>
+               Busca una cadena traducida similar a SELECT USER_CODE as username, ISNULL(U_NAME,&apos;&apos;) as name, {RoleField} as role, ( CASE WHEN Locked = &apos;N&apos; THEN &apos;Y&apos; ELSE &apos;N&apos; END) as active
+            FROM OUSR
+            WHERE GROUPS &lt;&gt; 99 AND  UPPER(USER_CODE) = UPPER(@username).
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_TipoCambioUltimoMesSelect">
+             <summary>
+               Busca una cadena traducida similar a SELECT * 
+            FROM [{BaseDeDatos}]..[ORTT]
+            WHERE 
+            RateDate BETWEEN @inicio AND @fin.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Update_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[LOG_WS]
+              SET[visual_aid_label] = @visual_aid_label
+                 ,[visual_aid_value] = @visual_aid_value
+                 ,[output] = @output
+                 ,[old_input] = @old_input
+                 ,[nvt_code] = @nvt_code
+                 ,[nvt_message] = @nvt_message
+                 ,[sap_code] = @sap_code
+                 ,[sap_message] = @sap_message
+                 ,[sap_hook] = @sap_hook
+                 ,[thirdparty_hook] = @thirdparty_hook
+                 ,[status] = @status
+                 ,[finished] = @finished
+            WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Update_LOGWS_WithInput">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[LOG_WS]
+              SET[visual_aid_label] = @visual_aid_label
+                 ,[visual_aid_value] = @visual_aid_value
+                 ,[input] = @input
+                 ,[output] = @output
+                 ,[old_input] = @old_input
+                 ,[nvt_code] = @nvt_code
+                 ,[nvt_message] = @nvt_message
+                 ,[sap_code] = @sap_code
+                 ,[sap_message] = @sap_message
+                 ,[sap_hook] = @sap_hook
+                 ,[thirdparty_hook] = @thirdparty_hook
+                 ,[status] = @status
+                 ,[finished] = @finished
+            WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Update_PrintQueue">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}]..[PRINT_QUEUE] SET updated=GETDATE(), status = @status, error=@error, error_full=@full where station = @station AND &quot;ID&quot; IN ({ids}).
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_Update_Session">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[SESSION]  SET [updated]=GETDATE() WHERE token = @token.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_UpdateRetry_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[LOG_WS]
+              SET[old_input] = [input]
+                 ,[input] = @input
+                 ,[output] = @output
+                 ,[sap_hook] = @sap_hook
+                 ,[thirdparty_hook] = @thirdparty_hook
+                 ,[status] = @status
+            WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_UpdateStatus_LOGWS">
+            <summary>
+              Busca una cadena traducida similar a UPDATE [{MupetDB}].[dbo].[LOG_WS]
+              SET [status] = @status
+            WHERE id=@id.
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SAP_VerificarTipoCambioActualSelect">
+             <summary>
+               Busca una cadena traducida similar a SELECT ISNULL(Rate,0) AS Rate
+            FROM ORTT
+            WHERE 
+            Currency = @moneda AND
+            RateDate = @fecha.
+             </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Properties.Resources.SQLDateTimeFormat">
+            <summary>
+              Busca una cadena traducida similar a yyyy-MM-dd HH:mm:ss.
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.SAP.SDKAccess.lockObject">
+            <summary>
+            Lock for SAPbobsCOM.Company Access
+            </summary>
+        </member>
+        <member name="T:Novitec.Mupet.SAP.DBAccessSAP">
+            <summary>
+            Acceso a base de datos sql 2012,2018 o 2015
+            Cada instancia comparte una Conexion
+            La Conexion se cierra en el destructor o al llamar Disconnect
+            Permite el uso de transacciones
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.SAP.DBAccessSAP.connection">
+            <summary>
+            Conexion compartida por todos los comandos
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.SAP.DBAccessSAP.transaction">
+            <summary>
+            Transaccion compartida por todos los comandos (si se require llamar a StartTransaction)
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.#ctor">
+            <summary>
+            Crea una instancia de DBAccessSAP, basado en el archivo de configuracion
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Crea una instancia de DBAccessSAP, basado en parametros de Conexion
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.newConnection(System.String,System.String,System.String,System.String)">
+            <param name="server">Nombre del servidor SQL</param>
+            <param name="database">Nombre de la base de datos</param>
+            <param name="user">Usuario para conectarse a la base de datos</param>
+            <param name="password">Password para conectarse a la base de datos</param>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.TestConnection(System.String,System.String,System.String,System.String)">
+            <summary>
+            Abre y cierra una Conexion para probar los parametros dados
+            </summary>
+            <param name="server">Nombre del servidor SQL</param>
+            <param name="database">Nombre de la base de datos</param>
+            <param name="user">Usuario para conectarse a la base de datos</param>
+            <param name="password">Password para conectarse a la base de datos</param>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.substracParametersInQuery(System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Busca todas las coincidencias de parametros en formato @\w+ y crea un subconjunto de los parametros solicitados
+            </summary>
+            <param name="parameters"></param>
+            <param name="query"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.ExecuteNonQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo INSERT, DELETE o UPDATE, la cual tiene 
+            valores de parametros
+            </summary>
+            <param name="query">Query por ejecutar</param>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.ExecuteInsertIdentity(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo Insert y devuelve el valor de la variable @@Identity
+            </summary>
+            <param name="consulta">String con la consulta</param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.SelectMany(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo SELECT y devuelve un DataTable con el resultado
+            </summary>
+            <param name="consulta">String con la consulta</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.SAP.DBAccessSAP.SelectOne(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})" -->
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.SelectEscalar(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Usado para Select excalares
+            </summary>
+            <param name="consulta"></param>
+            <returns>Retorna el primer valor de la primer fila de una consulta</returns>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.ExecuteSP(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta una consulta de tipo Store Procedure y devuelve un DataTable con el resultado
+            </summary>
+            <param name="spName">Nombre del SP</param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.ExecuteSPNonQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta un Store Procedure que no devuelve ningun valor y tiene valores de parametros
+            </summary>
+            <param name="spName">Nombre del SP</param>
+        </member>
+        <member name="M:Novitec.Mupet.SAP.DBAccessSAP.ExecuteSPEscalar(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Ejecuta un Store Procedure que tiene como salida el valor escalar de un parametros
+            </summary>
+            <param name="spName">Nombre del SP</param>
+            <param name="parameterReturnName">Valor Parámetro del Store Procedure que tiene el valor de retorno, se guarda como primer parametro del SP en el command</param>
+            <returns>El valor del parametro que escogio como parametro de retorno</returns>
+        </member>
+        <member name="F:Novitec.Mupet.Scenarios.SingleObject2SAP`2.DocumentAction">
+            <summary>
+            Indica si en lugar de Agregar un objeto a SAP, esta actualizando uno existente
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.SetSDKObjectType(SAPbobsCOM.BoObjectTypes)">
+            <summary>
+            Tipo de objeto SDK a crear
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Novitec.Mupet.Scenarios.SingleObject2SAP`2.SDKAccessInstance">
+            <summary>
+            Instancia de acceso a SDK, si no se asigna se crea una al momento de Finalizar
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.DoNotSaveDocument(System.Boolean)">
+            <summary>
+            Crea el objeto pero no lo guarda en la base de datos
+            es util cuando se estan cr   eando varios objetos al mismo tiempo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OverrideSource(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OverrideSourceDelegate1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario)=>TSource
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OverrideSource(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OverrideSourceDelegate2)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario, input)=>TSource
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OverrideSource(`1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log basado directamente el input IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.UpdateExistingDelegate1)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.UpdateExistingDelegate2)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, document) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.UpdateExistingDelegate3)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, document, source) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.UpdateExisting(System.Int32)">
+            <summary>
+            Carga el documento basado en ina llave entera
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.UpdateExisting(System.String)">
+            <summary>
+            Carga el documento basado en ina llave string
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.RemoveExistingDelegate1)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.RemoveExistingDelegate2)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, document) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.RemoveExistingDelegate3)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, document, source) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.RemoveExisting(System.Int32)">
+            <summary>
+            Carga el documento basado en ina llave entera
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.RemoveExisting(System.String)">
+            <summary>
+            Carga el documento basado en ina llave string
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.Map(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate2)">
+            <summary>
+            Funcion a llamar despues de crear un objeto para ser mapeado (scenario, document) => void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.Map(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate3)">
+            <summary>
+            Funcion a llamar despues de crear un objeto para ser mapeado (scenario, document, source) => void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnEvaluateSapError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnEvaluateSapErrorDelegate1)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Sap (scenario, ex) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnEvaluateSapError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnEvaluateSapErrorDelegate2)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Sap (scenario, ex, document) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnEvaluateSapError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnEvaluateSapErrorDelegate3)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Sap (scenario, ex, document, source) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate1)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario, document, source) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate2)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario, document) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate3)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate1)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario, document, source) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate2)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario, document) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.SingleObject2SAPDelegate3)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario) = void
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnDocumentErrorDelegate1)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnDocumentErrorDelegate2)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnDocumentErrorDelegate3)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnDocumentErrorDelegate4)" -->
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingSapHookDelegate1)">
+            <summary>
+            Obtiene el objeto sapHook (scenario) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingSapHookDelegate2)">
+            <summary>
+            Obtiene el objeto sapHook (scenario, document) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingSapHookDelegate3)">
+            <summary>
+            Obtiene el objeto sapHook (scenario, document, source) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingThirdPartyHookDelegate1)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingThirdPartyHookDelegate2)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario, document) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2SAP{`0,`1}.OnGettingThirdPartyHookDelegate3)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario, document, source) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP`2.TryInvokeOnGettingThirdPartyHook(`0,`1,System.Boolean@)">
+            <param name="invoked">Indica si alguno de los delegados de OnGettingThirdPartyHook fue invocado</param>
+        </member>
+        <member name="F:Novitec.Mupet.Scenarios.SingleObject2Hana`2.DocumentAction">
+            <summary>
+            Indica si en lugar de Agregar un objeto a SAP, esta actualizando uno existente
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.DoNotSaveDocument(System.Boolean)">
+            <summary>
+            Crea el objeto pero no lo guarda en la base de datos
+            es util cuando se estan creando varios objetos al mismo tiempo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.SetServiceLayerAddMethod(System.String)">
+            <summary>
+            Metodo a llamar en el service layer al agregar el objeto
+            SOLO PARA HANA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.SetSaveChangesOptions(System.Data.Services.Client.SaveChangesOptions)">
+            <summary>
+            Metodo a llamar en el service layer al agregar el objeto
+            SOLO PARA HANA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OverrideSource(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OverrideSourceDelegate1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario)=>TSource
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OverrideSource(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OverrideSourceDelegate2)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario, input)=>TSource
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OverrideSource(`1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log basado directamente el input IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.UpdateExistingDelegate1)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.UpdateExistingDelegate2)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.UpdateExistingDelegate3)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess, document) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.UpdateExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.UpdateExistingDelegate4)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess, document, source) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.RemoveExistingDelegate1)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.RemoveExistingDelegate2)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.RemoveExistingDelegate3)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess, document) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.RemoveExisting(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.RemoveExistingDelegate4)">
+            <summary>
+            En lugar de crear un documento se actualiza uno existente (scenario, serviceLayerAccess, document, source) => TDocument
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.Map(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate2)">
+            <summary>
+            Funcion a llamar despues de crear un objeto para ser mapeado (scenario, document) => void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.Map(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate3)">
+            <summary>
+            Funcion a llamar despues de crear un objeto para ser mapeado (scenario, document, source) => void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnEvaluateHanaError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnEvaluateHanaErrorDelegate1)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Hana (scenario, ex) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnEvaluateHanaError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnEvaluateHanaErrorDelegate2)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Hana (scenario, ex, document) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnEvaluateHanaError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnEvaluateHanaErrorDelegate3)">
+            <summary>
+            Enviado cuando ocurre una excepcion especifica de Hana (scenario, ex, document, source) => bool
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate1)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario, document, source) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate2)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario, document) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentReady(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate3)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y mapearle los datos del source (scenario) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate1)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario, document, source) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate2)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario, document) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentSuccess(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate3)">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos  (scenario) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentAdded(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate1)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y agregarlo al ServiceLayer pero antes de guardarlo  (scenario) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentAdded(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate2)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y agregarlo al ServiceLayer pero antes de guardarlo (scenario, document) = void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentAdded(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.SingleObject2HanaDelegate3)">
+            <summary>
+            Funcion a llamar despues de crear un objeto y agregarlo al ServiceLayer pero antes de guardarlo (scenario) = void
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnDocumentErrorDelegate1)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnDocumentErrorDelegate2)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnDocumentErrorDelegate3)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnDocumentError(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnDocumentErrorDelegate4)" -->
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingSapHookDelegate1)">
+            <summary>
+            Obtiene el objeto sapHook (scenario) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingSapHookDelegate2)">
+            <summary>
+            Obtiene el objeto sapHook (scenario, document) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingSapHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingSapHookDelegate3)">
+            <summary>
+            Obtiene el objeto sapHook (scenario, document, source) => sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.TryInvokeOnGettingSapHook(`0,`1,System.Boolean@)">
+            <param name="invoked">Indica si alguno de los metodos fue invocado</param>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingThirdPartyHookDelegate1)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingThirdPartyHookDelegate2)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario, document) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.OnGettingThirdPartyHook(Novitec.Mupet.Scenarios.SingleObject2Hana{`0,`1}.OnGettingThirdPartyHookDelegate3)">
+            <summary>
+            Obtiene el objeto thirdPartyHook (scenario, document, source) => object
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana`2.TryInvokeOnGettingThirdPartyHook(`0,`1,System.Boolean@)">
+            <param name="invoked">Indica si alguno de los metodos fue invocado</param>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Data.BridgeDB.Load(Novitec.Mupet.Common.Query,Novitec.Mupet.Common.Query,System.Collections.Generic.Dictionary{System.String,System.Object},System.String)">
+            <summary>
+            Carga las entradas a partir de dos consultas maestro y detalle
+            Normalmente estas consultas provienen de una base de datos intermedia (Bridge)
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OverrideSource(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OverrideSourceDelegate1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario)=>IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OverrideSource(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OverrideSourceDelegate2)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario, input)=>IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OverrideSource(System.Collections.IEnumerable)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log basado directamente el input IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate1)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate2)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate3)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry, logId)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate4)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry, logId, index)=>NVTResult
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate100)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate200)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate300)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnEachObjectDelegate400)" -->
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnObjectsReadyDelegate1)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario, entries, resultList) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnObjectsReadyDelegate2)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario, entries) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2Hana`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2Hana{`0}.OnObjectsReadyDelegate3)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.DoNotSaveDocument">
+            <summary>
+            Crea el objeto pero no lo guarda en la base de datos
+            es util cuando se estan creando varios objetos al mismo tiempo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.SetServiceLayerAddMethod(System.String)">
+            <summary>
+            Metodo a llamar en el service layer al agregar el objeto
+            SOLO PARA HANA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnValidateMasterAttribute(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Object,System.Object})">
+            <summary>
+            Funcion a llamar cuando se validan los parameros
+            Se debe retornar el calor enviado como objeto o una alteracion de este en caso de reemplazar el valor original
+            - string: nombre del atibuto
+            - object: valor del atibuto
+            Retorna: nuevo valor del atributo
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Int32,System.Object,System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Int32,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnCreateMasterDocument(System.Action{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion zzz a llamar para cargar un documento creado con el arreglo de atributos validado
+            <list type="number">
+                <item><term>object</term><description>documento de sap</description></item>
+                <item>Dictionary: arreglo de atributos validado</item>
+            </list>
+            - 
+            - 
+            Si no se llama esta funcion, se intentara llenar el objeto directamente con los atributos especificados
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnCreateDetailRow(System.Action{Novitec.Mupet.Scenarios.SingleObject2Hana,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser agregado al objeto de Sap
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            - documento de sap
+            </summary> 
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnDocumentReady(System.Action{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de crear un objeto pero antes de guardarlo
+            - documento de sap
+            - Lista de atributos iniciales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnDocumentSuccess(System.Action{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos
+            Este evento no ocurre si PreventObjectSaving fue llamado
+            - documento de sap
+            - Lista de atributos iniciales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnDocumentError(System.Action{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Exception,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de un error al intentar salvar el objeto a la base de datos
+            Este evento no ocurre si PreventObjectSaving fue llamado
+            </summary>
+            <param name="onDocumentError">
+            <list type="">
+            <item>Exception: Excepcion de sap</item>
+            <item>object: Documento de sap</item>
+            <item>Dictionary: Lista de atributos iniciales</item>
+            </list>
+            </param>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnGettingSapHook(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Object,System.Object})">
+            <summary>
+            Obtiene el objeto sapHook
+            - Documento de sap
+            - Retorna: objeto dinamico representando el sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2Hana.OnGettingThirdPartyHook(System.Func{Novitec.Mupet.Scenarios.SingleObject2Hana,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            Obtiene el objeto thirdPartyHook
+            - Documento de Sap
+            - Lista de atributos inicales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnBeforeFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnBeforeFinishDelegate1)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario)=>void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnBeforeFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnBeforeFinishDelegate2)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario, NVTResult)=>void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnBeforeFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnBeforeFinishDelegate100)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnBeforeFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnBeforeFinishDelegate200)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario, NVTResult)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnAfterFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnAfterFinishDelegate1)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario)=>void
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.OnAfterFinish(Novitec.Mupet.Scenarios.Scenario{`0}.OnAfterFinishDelegate2)">
+            <summary>
+            Se llama antes de finalizar el escenario (scenario, NVTResult)=>void
+            </summary>
+        </member>
+        <member name="F:Novitec.Mupet.Scenarios.Scenario`1._prematureResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Scenario`1.ProcessCatchable(System.Action)">
+            <summary>
+            Encapsulamiento para capturar cualquier error antes del cuerpo
+            si ya existe un error prematuro, no procesa la accion dada
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Transaction.OnExecuteQueries(System.Func{Novitec.Mupet.Scenarios.Transaction,System.Collections.Generic.List{Novitec.Mupet.Common.Query}})">
+            <summary>
+            Funcion a llamar para listar los querys a ejecutar
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Transaction.OnExecuteQueriesSQL(System.Func{Novitec.Mupet.Scenarios.Transaction,Novitec.Mupet.SAP.DBAccessSAP,Novitec.Mupet.Common.NVTResult})">
+            <summary> 
+            Funcion a llamar para realizar las llamadas transaccionales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.Transaction.OnExecuteQueriesHANA(System.Func{Novitec.Mupet.Scenarios.Transaction,Novitec.Mupet.Hana.DBAccessHana,Novitec.Mupet.Common.NVTResult})">
+            <summary>
+            Funcion a llamar para realizar las llamadas transaccionales
+            </summary>
+        </member>
+        <member name="P:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.SDKAccessInstance">
+            <summary>
+            Instancia de acceso a SDK, si no se asigna se crea una al momento de Finalizar
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OverrideSource(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OverrideSourceDelegate1)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario)=>IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OverrideSource(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OverrideSourceDelegate2)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log(scenario, input)=>IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OverrideSource(System.Collections.IEnumerable)">
+            <summary>
+            Carga el objeto para reemplazar el input del Log basado directamente el input IEnumerable
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate1)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate2)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate3)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry, logId)=>NVTResult
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate4)">
+            <summary>
+            Funcion a llamar por cada objeto a trabajar(scenario, entry, logId, index)=>NVTResult
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate100)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate200)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate300)" -->
+        <!-- Badly formed XML comment ignored for member "M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnEachObject(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnEachObjectDelegate400)" -->
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnObjectsReadyDelegate1)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario, entries, resultList) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnObjectsReadyDelegate2)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario, entries) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.ManyObjects2SAP`1.OnObjectsReady(Novitec.Mupet.Scenarios.ManyObjects2SAP{`0}.OnObjectsReadyDelegate3)">
+            <summary>
+            Funcion a llamar despues de procesar todos los objetos (scenario) => sapHook. 
+            Es opcional pero se usa para el caso en que se quieran guardar todos los objetos en un solo evento
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.DoNotSaveDocument">
+            <summary>
+            Crea el objeto pero no lo guarda en la base de datos
+            es util cuando se estan cr   eando varios objetos al mismo tiempo
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.SetSDKObjectType(SAPbobsCOM.BoObjectTypes)">
+            <summary>
+            Tipo de objeto SDK a crear
+            NO PERMITIDO EN HANA
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnValidateMasterAttribute(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Object,System.Object})">
+            <summary>
+            Funcion a llamar cuando se validan los parameros
+            Se debe retornar el calor enviado como objeto o una alteracion de este en caso de reemplazar el valor original
+            - string: nombre del atibuto
+            - object: valor del atibuto
+            Retorna: nuevo valor del atributo
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            - maestro
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Int32,System.Object,System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnValidateDetailRow(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Int32,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser validado
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            - maestro
+            Retorna: el nuevo objeto en el indice dado
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnCreateMasterDocument(System.Action{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion zzz a llamar para cargar un documento creado con el arreglo de atributos validado
+            <list type="number">
+                <item><term>object</term><description>documento de sap</description></item>
+                <item>Dictionary: arreglo de atributos validado</item>
+            </list>
+            - 
+            - 
+            Si no se llama esta funcion, se intentara llenar el objeto directamente con los atributos especificados
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnCreateDetailRow(System.Action{Novitec.Mupet.Scenarios.SingleObject2SAP,System.String,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            En el caso de que un atributo sea un arreglo de objetos, se llama este delegado para cada objeto del arreglo para ser agregado al objeto de Sap
+            - string: nombre del arreglo
+            - indice del arreglo
+            - objeto en el indice dado
+            - documento de sap
+            </summary> 
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnDocumentReady(System.Action{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de crear un objeto pero antes de guardarlo
+            - documento de sap
+            - Lista de atributos iniciales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnDocumentSuccess(System.Action{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de salvar exitosamente el objeto a la base de datos
+            Este evento no ocurre si PreventObjectSaving fue llamado
+            - documento de sap
+            - Lista de atributos iniciales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnDocumentError(System.Action{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Exception,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Funcion a llamar despues de un error al intentar salvar el objeto a la base de datos
+            Este evento no ocurre si PreventObjectSaving fue llamado
+            </summary>
+            <param name="onDocumentError">
+            <list type="">
+            <item>Exception: Excepcion de sap</item>
+            <item>object: Documento de sap</item>
+            <item>Dictionary: Lista de atributos iniciales</item>
+            </list>
+            </param>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnGettingSapHook(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Object,System.Object})">
+            <summary>
+            Obtiene el objeto sapHook
+            - Documento de sap
+            - Retorna: objeto dinamico representando el sapHook
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.OnGettingThirdPartyHook(System.Func{Novitec.Mupet.Scenarios.SingleObject2SAP,System.Object,System.Collections.Generic.Dictionary{System.String,System.Object},System.Object})">
+            <summary>
+            Obtiene el objeto thirdPartyHook
+            - Documento de Sap
+            - Lista de atributos inicales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.SingleObject2SAP.DefaultDocumentType">
+            <summary>
+            Para SDK es SAPbobsCOM.Documents
+            para Hana es {ServiceLayer.Namespace}.Document
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.Scenarios.GetView.SetQueryParams(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            David Céspedes incluyo el query y los parametros en los hooks para mayor trazabilidad. Thanks David!!!!
+            </summary>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.ConfigServiceHelper.Load(System.String,System.String)">
+            <summary>
+            Muestra la configuracion actual
+            </summary>
+            <param name="usuario"></param>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.ConfigServiceHelper.SaveHana(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Boolean,System.Boolean,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Type,System.String,System.Action{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Para agregar o quitar parametros del sistema este metodo debe ser sobreescrito por completo
+            </summary>
+            <param name="mupetDB">base de datos para Logs</param>
+            <param name="createMupetDBStructure">Intentar crear la estructura de Mupet, si las tablas de mupet no existen al guardar la configuracion nueva.</param>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.ConfigServiceHelper.SaveSAP(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Action{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Deprecated sin lenguaje
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.ConfigServiceHelper.SaveSAP(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Action{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Deprecated sin maxQueueResponseSize
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.ConfigServiceHelper.SaveSAP(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Boolean,System.Boolean,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object},System.Collections.Generic.List{System.String},System.Action{System.Collections.Generic.KeyValuePair{System.String,System.Object}},System.Action{System.Collections.Generic.Dictionary{System.String,System.Object}})">
+            <summary>
+            Para agregar o quitar parametros del sistema este metodo debe ser sobreescrito por completo
+            </summary>
+            <param name="mupetDB">base de datos para Logs</param>
+            <param name="createMupetDBStructure">Intentar crear la estructura de Mupet, si las tablas de mupet no existen al guardar la configuracion nueva.</param>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.AuthServiceHelper.GetUserByToken(System.String)">
+            <summary>
+            Obtiene el usuario basado en el token de la tabla SESSION
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.AuthServiceHelper.GetUser(System.String)">
+            <summary>
+            Obtiene el usuario buscando en el siguiente orden:
+              1- usuario de archivo de configuracion
+              2- usuarios de lista customizada de configuracion
+              3- usuario de sap si AuthSapEnabled es verdadero
+            </summary>
+            <param name="username"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Novitec.Mupet.ServiceHelper.LogServiceHelper.UseHistory">
+            <summary>
+            Indica si en los logs s utilizan las tablas history e lugar de las normales
+            </summary>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.LogServiceHelper.ObtenerLogs(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="desde"></param>
+            <param name="hasta"></param>
+            <param name="estatus"></param>
+            <param name="group"></param>
+            <param name="action"></param>
+            <param name="search"></param>
+            <param name="sord"></param>
+            <param name="sidx"></param>
+            <param name="page">Debe iniciar en 1, menor o igual a zero no se pagina</param>
+            <param name="rows"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.LogServiceHelper.HANAWrapPaging(System.String,System.Text.StringBuilder,System.Text.StringBuilder,System.Text.StringBuilder,System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="strQuery"></param>
+            <param name="select"></param>
+            <param name="orderby"></param>
+            <param name="where"></param>
+            <param name="page">debe iniciar indice en 1</param>
+            <param name="rows"></param>
+        </member>
+        <member name="M:Novitec.Mupet.ServiceHelper.LogServiceHelper.SAPWrapPaging(System.String,System.Text.StringBuilder,System.Text.StringBuilder,System.Text.StringBuilder,System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="strQuery"></param>
+            <param name="select"></param>
+            <param name="orderby"></param>
+            <param name="where"></param>
+            <param name="page">debe iniciar indice en 1</param> 
+            <param name="rows"></param>
+        </member>
+    </members>
+</doc>

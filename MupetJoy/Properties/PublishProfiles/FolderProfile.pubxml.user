@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>Y:\ProyectosGIT\EstablishmentLabs\MupetJoy\MupetJoy\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2021-10-13T17:41:43.6854344Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include=".gitignore.txt">
+      <publishTime>09/07/2021 13:38:40</publishTime>
+    </File>
+    <File Include="admin/index.html">
+      <publishTime>09/07/2021 12:32:02</publishTime>
+    </File>
+    <File Include="admin/local/js/app.init.js">
+      <publishTime>09/09/2021 00:04:54</publishTime>
+    </File>
+    <File Include="admin/local/js/globalConfig.js">
+      <publishTime>09/09/2021 00:05:10</publishTime>
+    </File>
+    <File Include="admin/local/js/main.js">
+      <publishTime>09/07/2021 12:32:26</publishTime>
+    </File>
+    <File Include="admin/local/js/pages/planillaPago.js">
+      <publishTime>09/09/2021 00:08:24</publishTime>
+    </File>
+    <File Include="admin/local/js/require-add.js">
+      <publishTime>09/07/2021 12:32:26</publishTime>
+    </File>
+    <File Include="admin/local/js/router.js">
+      <publishTime>09/09/2021 00:05:58</publishTime>
+    </File>
+    <File Include="admin/local/less/base.compile.less">
+      <publishTime>09/07/2021 12:33:30</publishTime>
+    </File>
+    <File Include="admin/local/less/base.css">
+      <publishTime>09/07/2021 12:33:30</publishTime>
+    </File>
+    <File Include="admin/local/less/base.less">
+      <publishTime>09/07/2021 12:33:30</publishTime>
+    </File>
+    <File Include="admin/local/less/base.test.less">
+      <publishTime>09/07/2021 12:33:30</publishTime>
+    </File>
+    <File Include="admin/local/templates/config/form.config.custom.html">
+      <publishTime>09/07/2021 12:56:04</publishTime>
+    </File>
+    <File Include="admin/local/templates/menu/admin.html">
+      <publishTime>09/09/2021 00:06:20</publishTime>
+    </File>
+    <File Include="admin/local/templates/menu/planillas.html">
+      <publishTime>09/09/2021 00:06:30</publishTime>
+    </File>
+    <File Include="admin/local/templates/planillaPago/form.html">
+      <publishTime>09/07/2021 12:34:46</publishTime>
+    </File>
+    <File Include="AdminService.asmx">
+      <publishTime>09/06/2021 15:31:42</publishTime>
+    </File>
+    <File Include="AuthService.asmx">
+      <publishTime>09/06/2021 15:32:00</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 16:29:20</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/08/2020 21:52:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>08/14/2018 05:22:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>08/14/2018 05:22:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Services.Client.dll">
+      <publishTime>08/14/2018 05:22:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>08/20/2021 14:02:44</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Logging.dll">
+      <publishTime>08/20/2021 14:04:34</publishTime>
+    </File>
+    <File Include="bin/Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>08/20/2021 14:09:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Mupet.dll">
+      <publishTime>04/05/2019 15:48:48</publishTime>
+    </File>
+    <File Include="bin/Mupet.pdb">
+      <publishTime>07/08/2021 16:36:18</publishTime>
+    </File>
+    <File Include="bin/MupetJoy.dll">
+      <publishTime>10/13/2021 11:41:30</publishTime>
+    </File>
+    <File Include="bin/MupetJoy.pdb">
+      <publishTime>10/13/2021 11:41:30</publishTime>
+    </File>
+    <File Include="bin/MupetPrintLibrary.dll">
+      <publishTime>04/05/2019 15:48:48</publishTime>
+    </File>
+    <File Include="bin/MupetPrintLibrary.pdb">
+      <publishTime>03/27/2019 14:47:36</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/17/2021 14:03:36</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>03/27/2019 14:49:06</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 14:50:24</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/Sap.Data.Hana.v4.5.dll">
+      <publishTime>02/27/2018 19:39:26</publishTime>
+    </File>
+    <File Include="bin/Sap.Data.Hana.v4.5.dll.config">
+      <publishTime>02/27/2018 19:39:04</publishTime>
+    </File>
+    <File Include="bin/Swashbuckle.Core.dll">
+      <publishTime>07/08/2017 01:30:56</publishTime>
+    </File>
+    <File Include="bin/System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>08/20/2021 14:01:12</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>11/28/2018 13:00:36</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>08/14/2018 05:22:38</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>11/28/2018 13:01:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>11/28/2018 13:02:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 13:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>11/28/2018 13:04:24</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>10/05/2016 07:11:52</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>02/08/2017 16:54:10</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>02/08/2017 16:54:08</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Services.Client.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>02/08/2017 16:54:06</publishTime>
+    </File>
+    <File Include="config/config.json">
+      <publishTime>09/28/2021 17:15:48</publishTime>
+    </File>
+    <File Include="ConfigService.asmx">
+      <publishTime>09/06/2021 15:32:16</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/08/2021 23:41:20</publishTime>
+    </File>
+    <File Include="JobService.asmx">
+      <publishTime>09/06/2021 16:42:18</publishTime>
+    </File>
+    <File Include="MainService.asmx">
+      <publishTime>09/06/2021 16:41:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/13/2021 11:41:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
